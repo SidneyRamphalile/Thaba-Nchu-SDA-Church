@@ -702,10 +702,66 @@
       </div>
 
     <!-- Copyright -->
+    <!--
+    Two lines and nothing else.
+
+    The church's copyright and the developer's credit share one centred row -
+    stacked on a phone, side by side from `sm` - with the site's own copyright
+    quiet beneath it. Three items of three different lengths never sit straight
+    on any width; two centre cleanly.
+
+    Bootstrap 5.1 has no responsive `gap-*` variants, so the gap is set inline:
+    0.5rem between the lines while they are stacked, 1rem between them once they
+    are on one row.
+  -->
   <div class="text-center p-3 bg-dark text-light" style="background-color: rgba(0, 0, 0, 0.2);">
-    &copy; 2022 Copyright:
-    <a class="text-white"  style="text-decoration: none" href="index.html">Thaba Nchu Seventh-Day Adventist Church</a>
+    <div
+      class="d-flex flex-column flex-sm-row align-items-center justify-content-center"
+      style="gap: 0.5rem 1rem; font-size: 0.8rem;"
+    >
+      <p class="mb-0">&copy; 2022 Thaba Nchu Seventh-Day Adventist Church.</p>
+
+      <!-- A hairline divider, only where the two sit on one line. -->
+      <span
+        class="d-none d-sm-block"
+        style="width: 1px; height: 0.75rem; background-color: rgba(255, 255, 255, 0.25);"
+        aria-hidden="true"
+      ></span>
+
+      <p class="mb-0">
+        Developed by
+        <a
+          class="text-warning"
+          style="text-decoration: none; font-weight: 600;"
+          href="https://sidneyramphalile.online"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Sidney</a>
+      </p>
+    </div>
+
+    <!--
+      The developer's own copyright, on its own line beneath.
+
+      The design and code of this site are the author's work and stay his unless
+      assigned in writing; the church's own name, photographs and words stay the
+      church's. The line above is the credit, this one is the notice - which is
+      also why it sits below rather than joining the row: two items centre on a
+      line, three of different lengths do not.
+    -->
+    <p class="mb-0 mt-2" style="font-size: 0.68rem; opacity: 0.55;">
+      Website &copy; <span class="js-year">2022</span> Sidney Ramphalile
+    </p>
   </div>
+
+  <!-- Keeps the site copyright year current without a build step. The
+       church's own year stays at 2022: that is when the site was published,
+       and a copyright year records publication, not the present day. -->
+  <script>
+    document.querySelectorAll('.js-year').forEach(function (el) {
+      el.textContent = new Date().getFullYear();
+    });
+  </script>
   <!-- Copyright -->
 </footer>
 <!-- Footer -->
